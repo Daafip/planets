@@ -14,7 +14,7 @@ def convert_temperature(temperature, unit):
         return farenheit_check(farenheit), kelvin_check(kelvin)
 
     elif unit == "F":
-        celsius = farenheit_to_celcius(temperature)
+        celsius = farenheit_to_celsius(temperature)
         if type(celsius) == str:
             kelvin = invalid_message
         else:
@@ -33,18 +33,18 @@ def kelvin_check(kelvin):
 
 def celsius_check(celsius):
     """"Checks to ensure that Celsius isn't below 273.15"""
-    if type(celsius) == str or celsius < -273.15:
+    if  celsius < -273.15:
         return invalid_message
     else:
         return celsius
 
 def farenheit_check(fahrenheit):
     """"Checks to ensure that Fahrenheit isn't below -459.67"""
-    if type(fahrenheit) == str or fahrenheit < -459.67:
+    if fahrenheit < -459.67:
         return invalid_message
     else:
         return fahrenheit
-def farenheit_to_celcius(temperature):
+def farenheit_to_celsius(temperature):
     """""Coverts celsius to Farenheit"""
     celsius = (temperature - 32) * (5 / 9)
     return celsius_check(celsius)
@@ -71,11 +71,11 @@ class ConvertTemperature():
 
     def out(self):
         if self.unit == "F":
-            self.fahrenheit =self.temperature
+            self.fahrenheit = self.temperature
             self.farenheit_check()
-            self.farenheit_to_celcius()
-            self.kelvin = self.celcius + 273.15
-            return self.celcius, self.kelvin
+            self.farenheit_to_celsius()
+            self.kelvin = self.celsius + 273.15
+            return self.celsius, self.kelvin
         elif self.unit == "C":
             self.celsius = self.temperature
             self.kelvin = self.temperature + 273.15
@@ -96,24 +96,24 @@ class ConvertTemperature():
         fahrenheit = (self.temperature * (9 / 5)) + 32
         self.fahrenheit = fahrenheit
 
-    def farenheit_to_celcius(self):
+    def farenheit_to_celsius(self):
         """""Coverts celsius to Farenheit"""
         celsius = (self.temperature - 32) * (5 / 9)
         self.celsius = celsius
 
     def farenheit_check(self):
         """"Checks to ensure that Fahrenheit isn't below -459.67"""
-        if type(self.fahrenheit) == str or self.fahrenheit < -459.67:
+        if self.fahrenheit < -459.67:
             raise UserWarning("Invalid Temperature")
 
     def kelvin_check(self):
         """"Checks to ensure that Kelvin isn't negative"""
-        if type(self.kelvin) == str or self.kelvin < 0:
+        if self.kelvin < 0:
             raise UserWarning("Invalid Temperature")
 
     def celsius_check(self):
         """"Checks to ensure that Celsius isn't below 273.15"""
-        if type(self.celsius) == str or self.celsius < -273.15:
+        if self.celsius < -273.15:
             raise UserWarning("Invalid Temperature")
 
 while True:
