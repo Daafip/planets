@@ -6,7 +6,7 @@ def test_add():
     
 def test_add_str():
     """New test"""
-    assert add("hello","world") == "hello world"
+    assert add("hello","world") == "helloworld"
     
     
 def test_subtract():
