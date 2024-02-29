@@ -8,12 +8,16 @@
 
 def fizz_buzz(val):
     if valid_number(val):
-        if val % 3 == 0:
+        if (val % 3 == 0) and (val % 5 == 0):
+            return "FizzBuzz"
+        elif val % 3 == 0:
             return "Fizz"
         elif val % 5 == 0:
             return "Buzz"
-        else: return val
-
+        else:
+            return val
+    else:
+        raise ValueError
 
 
 
@@ -22,3 +26,4 @@ def valid_number(val):
         return True
     else:
         return False
+
