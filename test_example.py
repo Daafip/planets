@@ -5,6 +5,7 @@ def test_add():
 
     
 def test_add_str():
+    """New test"""
     assert add("hello","world") == "hello world"
     
     
